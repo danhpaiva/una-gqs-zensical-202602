@@ -1,0 +1,126 @@
+site_name: "Garantia e Qualidade de Software - UNA"
+site_url: https://danhpaiva.github.io/una-gqs-zensical-202602/
+site_author: Daniel Paiva
+site_description: >-
+  Material de apoio da disciplina Garantia e Qualidade de Software (GQS) — 2026/2.
+
+# Link para o repositório e botão "editar esta página"
+repo_url: https://github.com/danhpaiva/una-gqs-zensical-202602
+repo_name: danhpaiva/una-gqs-zensical-202602
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/animaeducacao.jpg
+  favicon: assets/animaeducacao.jpg
+  font:
+    text: Inter # Fonte de texto do site
+    code: JetBrains Mono # Fonte monoespaçada dos blocos de código
+  palette:
+    # 3 estados: automático (segue o sistema) -> claro -> escuro
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Mudar para modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo automático
+  features:
+    - navigation.tabs # Seções de topo viram abas no cabeçalho
+    - navigation.indexes # Permite página-índice em cada seção
+    - navigation.sections
+    - navigation.expand # Deixa o menu lateral aberto por padrão
+    - navigation.top # Botão "Voltar ao topo" automático
+    - toc.follow # O sumário lateral acompanha a rolagem
+    - navigation.tracking # Atualiza a URL conforme o aluno rola a página
+    - content.code.copy # Botão de copiar código em um clique
+    - content.action.edit # Botão "editar esta página" (usa repo_url + edit_uri)
+    - content.tabs.link # Sincroniza abas de mesmo rótulo na página inteira
+    - navigation.instant # Navegação SPA: troca de página sem recarregar tudo
+    - navigation.instant.progress # Barra de progresso ao carregar páginas
+    - search.suggest # Sugere a continuação da palavra na busca
+    - search.highlight # Realça os termos buscados na página
+
+nav:
+  - Home: index.md
+  - Guia do Professor: setup.md
+  - 🧰 Ferramentas: ferramentas.md
+  - 📖 Aulas:
+      - "01. Qualidade e Garantia da Qualidade (QA)": aulas/01-aula.md
+      - "02. DevOps e Integração Contínua (CI/CD)": aulas/02-aula.md
+      - "03. Técnicas de Revisão e Inspeção": aulas/03-aula.md
+      - "04. Fundamentos e Estratégias de Teste": aulas/04-aula.md
+      - "05. Teste de Caixa Branca (Estrutural)": aulas/05-aula.md
+      - "06. Teste de Caixa Preta (Funcional)": aulas/06-aula.md
+      - "07. TDD e Testes Automatizados": aulas/07-aula.md
+      - "08. Níveis de Teste: Unitário ao Sistema": aulas/08-aula.md
+      - "09. Plano e Roteiro de Testes": aulas/09-aula.md
+      - "10. Métricas, Indicadores e Pontos de Função": aulas/10-aula.md
+      - "11. Modelos de Qualidade: ISO, CMMI e MPS.BR": aulas/11-aula.md
+      - "12. Configuração, Manutenção e Reengenharia": aulas/12-aula.md
+  - 📝 Listas:
+      - "Lista 01 — Qualidade e QA": listas/01-lista.md
+      - "Lista 02 — CI/CD e DevOps": listas/02-lista.md
+      - "Lista 03 — Revisão e Inspeção": listas/03-lista.md
+      - "Lista 04 — Estratégias de Teste": listas/04-lista.md
+      - "Lista 05 — Caixa Branca": listas/05-lista.md
+      - "Lista 06 — Caixa Preta": listas/06-lista.md
+      - "Lista 07 — TDD e Automação": listas/07-lista.md
+      - "Lista 08 — Níveis de Teste": listas/08-lista.md
+      - "Lista 09 — Plano de Testes": listas/09-lista.md
+      - "Lista 10 — Métricas e Pontos de Função": listas/10-lista.md
+      - "Lista 11 — Modelos de Qualidade": listas/11-lista.md
+      - "Lista 12 — Configuração e Manutenção": listas/12-lista.md
+  # - 📦 Trabalho Final: trabalhos/projeto-final.md  # (a definir)
+
+# Rascunhos: quando existir conteúdo de rascunho, coloque-o em uma pasta FORA
+# de docs_dir (ex.: rascunhos/ na raiz do repositório, não docs/rascunhos/).
+# exclude_docs não é respeitado pelo Zensical hoje — testado com build real:
+# o conteúdo listado é publicado normalmente, ignorando a config. Só o que
+# está dentro de docs_dir é publicado, então mover a pasta é a forma
+# confiável de manter conteúdo fora do site.
+
+# plugins:
+#   - search: removido — busca é nativa e automática no Zensical, herda o
+#     idioma de theme.language (pt-BR), sem precisar ser declarada.
+#     https://zensical.org/compatibility/plugins/
+#   - git-revision-date-localized: removido — ainda não tem módulo nativo no
+#     Zensical (Tier 2 do backlog, item #18). Reavaliar quando for suportado:
+#     https://zensical.org/compatibility/plugins/
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
