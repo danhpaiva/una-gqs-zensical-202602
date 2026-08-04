@@ -1,3 +1,7 @@
+# Build output (Zensical / MkDocs)
+site/
+venv/
+
 # Logs
 logs
 *.log
